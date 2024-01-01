@@ -1,0 +1,23 @@
+name: push CI
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+        uses: actions/checkout@v2
+
+      - name: Use node.js 18
+        run: action/setup-node@v3
+        with: 
+          node-version: 18.x
+          cache: 'npm'
+
+      -name: Install Dependencies
+       run: npm install
+         
